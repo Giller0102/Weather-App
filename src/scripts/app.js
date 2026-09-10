@@ -18,20 +18,18 @@ document.addEventListener('load', (e) => {
     const LOADING_ERROR = document.getElementById('error-message');
 
     // API request
-    async function fetchWeather() {
-        try {
-            const response = await fetch(API_URL);
+    // async function fetchWeather() {
+    //     try {
+    //         const response = await fetch(API_URL);
 
-            if (!response.ok) {
-                throw new Error(`HTTP-error: ${error.status} ${error.statusMessage}`);
-            }
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP-error: ${error.status} ${error.statusMessage}`);
+    //         }
 
-            const data = await response.json();
-            console.log(data);
-        } catch(error) {
-            console.error('Error: ', error.message);
-        }
-    }
-
-    // 
+    //         const data = await response.json();
+    //         console.log(data);
+    //     } catch(error) {
+    //         console.error('Error: ', error.message);
+    //     }
+    // }
 })
