@@ -1,106 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="weather, weather app">
-    <meta name="description" content="this is app for displaying current weather in Belarus">
+    <meta name="keywords" content="погода, приложение погоды, Беларусь">
+    <meta name="description" content="Приложение для отображения текущей погоды в Беларуси">
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/normalize.css">
-    <title>Weather App</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <title>Приложение Погоды</title>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="Weather App Logo">
+                <img src="images/logo.png" alt="Логотип приложения погоды">
             </div>
             <nav>
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#">Home</a>
+                        <a href="#">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">Search</a>
+                        <a href="#search-section">Поиск</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">Regions</a>
+                        <a href="#regions">Регионы</a>
                     </li>
                 </ul>
             </nav>
-            <div class="average-temp">
-                <img src="" alt="Weather">
-                <p></p>
-            </div>
         </div>
     </header>
     <main>
-        <div class="search">
+        <div class="search" id="search-section">
             <div class="container">
-                <h1>Weather App for Belarus</h1>
-                <div class="search-form">
-                    <form method="GET" class="search-form" id="search-form">
-                        <img src="images/search-icon.png" alt="Search">
-                        <input type="text" name="q" placeholder="Input city..." class="search-input" id="search-input">
-                        <button type="submit" class="button" id="search-btn">Search</button>
+                <h1>Погода в Беларуси</h1>
+                <div class="search-form-wrapper">
+                    <form class="search-form" id="search-form">
+                        <img src="images/search-icon.png" alt="Поиск">
+                        <input type="text" placeholder="Введите город..." class="search-input" id="search-input">
+                        <button type="submit" class="button" id="search-btn">Найти</button>
                     </form>
                 </div>
                 <div class="search-current">
-                    <h2>Average weather in our country is</h2>
+                    <h2>Средняя погода в нашей стране</h2>
                     <p></p>
                 </div>
             </div>
         </div>
         <div class="search_result">
             <div class="container">
-                <h2>Search Results</h2>
+                <h2>Результаты поиска</h2>
+                <img src="images/spinner.png" alt="Загрузка" id="loading-spinner" class="hidden">
                 <div class="search_result-wrapper" id="weather-result">
-
                 </div>
-                <div id="loading-message" style="display: none;">Загрузка...</div>
-                <div id="error-message" style="display: none;"></div>
-            </div>
-        </div>
-        <div class="regions">
-            <div class="container">
-                <h2>Current weather in regions</h2>
-                <div class="regions-wrapper">
-                    <div class="regions-item">
-
-                    </div>
-                </div>
+                <div id="loading-message" class="hidden">Загрузка...</div>
+                <div id="error-message" class="hidden"></div>
             </div>
         </div>
     </main>
     <footer>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="Weather App Logo">
+                <img src="images/logo.png" alt="Логотип приложения погоды">
             </div>
             <nav>
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#">API</a>
+                        <a href="https://openweathermap.org/" target="_blank">API погоды</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">Learn JavaScript</a>
+                        <a href="https://learn.javascript.ru/" target="_blank">Учить JavaScript</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">Git</a>
+                        <a href="https://git-scm.com/book/ru/v2" target="_blank">Git</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">My personal Github</a>
+                        <a href="https://github.com/Giller0102" target="_blank">Мой GitHub</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">My Telegram</a>
+                        <a href="https://t.me/gil_ler" target="_blank">Мой Telegram</a>
                     </li>
                 </ul>
             </nav>
-            <div class="average-temp">
-                <img src="" alt="Weather">
-                <p></p>
-            </div>
         </div>
     </footer>
     <script defer src="scripts/app.js"></script>
