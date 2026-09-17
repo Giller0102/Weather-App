@@ -266,6 +266,11 @@ header .container {
   margin-top: 8px;
 }
 
+.weather-card-desc {
+  text-transform: capitalize;
+  color: var(--color-text-secondary);
+}
+
 /* ===== Search results ===== */
 
 .search_result {
