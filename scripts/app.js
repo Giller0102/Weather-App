@@ -1,6 +1,7 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
+    const API-URL = 'https://api.openweathermap.org/data/2.5/weather';
     const DEFAULT_CITY = 'Минск';
 
     const SEARCH_FORM = document.getElementById('search-form');
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showLoading();
             hideError();
 
-            const url = `${API_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric&lang=ru`;
+            const url = `${API-URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric&lang=ru`;
             const response = await fetch(url);
 
             if (!response.ok) {
