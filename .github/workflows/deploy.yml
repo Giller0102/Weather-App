@@ -3,11 +3,16 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -16,12 +21,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create config.js
+      - name: Create config.js with API key
         run: |
-          echo "const API_KEY = '${{ secrets.OPENWEATHER_API_KEY }}';" > scripts/config.js
+          mkdir -p scripts
+          printf "const API_KEY = '%s';\n" "${{ secrets.OPENWEATHER_API_KEY }}" > scripts/config.js
+
+      - name: Verify config.js was created
+        run: |
+          if [ ! -f scripts/config.js ]; then
+            echo "config.js не создан"
+            exit 1
+          fi
+          echo "config.js создан, размер: $(wc -c < scripts/config.js) байт"
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
